@@ -70,7 +70,7 @@ library Strings {
         uint256 temp = value;
         uint256 digits;
         while (temp != 0) {
-            digits++;
+            ++digits;
             temp /= 10;
         }
         bytes memory buffer = new bytes(digits);
@@ -92,7 +92,7 @@ library Strings {
         uint256 temp = value;
         uint256 length = 0;
         while (temp != 0) {
-            length++;
+            ++length;
             temp >>= 8;
         }
         return toHexString(value, length);
@@ -258,9 +258,9 @@ library Address {
      */
     function functionCallWithValue(
         address target,
-        bytes memory data,
+        bytes calldata data,
         uint256 value
-    ) internal returns (bytes memory) {
+    ) internal returns (bytes calldata) {
         return functionCallWithValue(target, data, value, "Address: low-level call with value failed");
     }
 
